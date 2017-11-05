@@ -2,25 +2,33 @@
   "name": "eslint-plugin-ramda",
   "version": "0.0.0",
   "description": "Ramda refactoring and simplification",
+  "license": "MIT",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "ramda",
+    "fantasy-land"
   ],
   "author": "Marcelo Camargo <marcelocamargo@linuxmail.org>",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha tests --recursive"
+    "lint": "xo",
+    "test": "nyc ava"
   },
   "dependencies": {
-    "requireindex": "~1.1.0"
+    "create-eslint-index": "^1.0.0",
+    "req-all": "^1.0.0"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
     "eslint": "~3.9.1",
-    "mocha": "^3.1.2"
+    "eslint-ava-rule-tester": "^2.0.2",
+    "mocha": "^3.1.2",
+    "nyc": "^11.3.0",
+    "xo": "^0.18.2"
   },
   "engines": {
-    "node": ">=0.10.0"
-  },
-  "license": "ISC"
+    "node": ">=4.0.0"
+  }
 }
