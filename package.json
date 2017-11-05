@@ -30,5 +30,19 @@
   },
   "engines": {
     "node": ">=4.0.0"
+  },
+  "xo": {
+    "esnext": true,
+    "space": 4,
+    "rules": {
+      "operator-linebreak": [
+        "error",
+        "before"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    }
   }
 }
