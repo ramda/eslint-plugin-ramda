@@ -32,7 +32,7 @@ Configure it in `package.json`.
       "ramda/reduce-simplification": "error",
       "ramda/reject-simplification": "error",
       "ramda/unless-simplification": "error",
-      "ramda/when-simplification: "error"
+      "ramda/when-simplification": "error"
     }
   }
 }
