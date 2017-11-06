@@ -1,51 +1,74 @@
 # eslint-plugin-ramda
 
-Ramda refactoring and simplification
+[![Build Status](https://api.travis-ci.org/rung-tools/eslint-plugin-ramda.svg?branch=master)](https://travis-ci.org/rung-tools/eslint-plugin-ramda)
+
+ESLint rules for pragmatic Ramda usage, refactoring and simplification
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
-
 ```
-$ npm i eslint --save-dev
+$ npm install --save-dev eslint eslint-plugin-ramda
 ```
-
-Next, install `eslint-plugin-ramda`:
-
-```
-$ npm install eslint-plugin-ramda --save-dev
-```
-
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-ramda` globally.
 
 ## Usage
 
-Add `ramda` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Configure it in `package.json`.
 
 ```json
 {
+  "name": "my-awesome-project",
+  "eslintConfig": {
+    "env": {
+      "es6": true
+    },
     "plugins": [
-        "ramda"
-    ]
+      "ramda"
+    ],
+    "rules": {
+      "ramda/filter-simplification": "error",
+      "ramda/if-else-simplification": "error",
+      "ramda/no-redundant-and": "error",
+      "ramda/no-redundant-or": "error",
+      "ramda/reduce-simplification": "error",
+      "ramda/reject-simplification": "error",
+      "ramda/unless-simplification": "error",
+      "ramda/when-simplification: "error"
+    }
+  }
 }
 ```
 
+## Rules
 
-Then configure the rules you want to use under the rules section.
+- `filter-simplification` - Forbids using negated `filter` and suggests `reject`
+- `if-else-simplification` - Suggests `when` and `unless` when it is possible to replace
+- `no-redundant-and` - Forbids `and` with 2 parameters in favor of `&&`
+- `no-redundant-not` - Forbids `not` with 1 parameter in favor of `!`
+- `no-redundant-or` - Forbids `or` with 2 parameters in favor of `||`
+- `reduce-simplification` - Detects when can replace `reduce` by `sum` or `product`
+- `reject-simplification` - Forbids using negated `reject` and suggests `filter`
+- `unless-simplification` - Forbids using negated `unless` and suggests `when`
+- `when-simplification` - Forbids using negated `when` and suggests `unless`
+
+## Recommended configuration
+
+This plugin exports a [`recommended` configuration](index.js) that enforces good practices.
+
+To enable this configuration, use the `extends` property in your `package.json`.
 
 ```json
 {
-    "rules": {
-        "ramda/rule-name": 2
-    }
+  "name": "my-awesome-project",
+  "eslintConfig": {
+    "plugins": [
+      "ramda"
+    ],
+    "extends": "plugin:ramda/recommended"
+  }
 }
 ```
 
-## Supported Rules
+See [ESLint documentation](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
+for more information about extending configuration files.
 
-* Fill in provided rules here
-
-
-
-
-
+MIT © [Rung Tools](https://github.com/rung-tools)
