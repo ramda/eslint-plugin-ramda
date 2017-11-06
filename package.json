@@ -14,7 +14,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "xo",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "dependencies": {
     "create-eslint-index": "^1.0.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "ava": "^0.23.0",
+    "codecov": "^3.0.0",
     "eslint": "~3.9.1",
     "eslint-ava-rule-tester": "^2.0.2",
     "nyc": "^11.3.0",
