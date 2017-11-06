@@ -26,7 +26,7 @@ module.exports = {
     create,
     meta: {
         docs: {
-            description: 'Suggest simplifying `reduce(add)` to `sum`',
+            description: '`reduce` simplifications, like `reduce(add)` to `sum`',
             recommended: 'error'
         }
     }
