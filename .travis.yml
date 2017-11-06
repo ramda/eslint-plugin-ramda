@@ -5,7 +5,6 @@ node_js:
 
 install:
   - yarn
-  - yarn compile
 
 script:
   - yarn lint && yarn test && yarn report-coverage
