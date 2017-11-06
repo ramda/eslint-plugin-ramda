@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-ramda",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Ramda refactoring and simplification",
   "license": "MIT",
   "keywords": [
