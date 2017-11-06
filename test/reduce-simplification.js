@@ -11,7 +11,7 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
-ruleTester.run('reduce-add-simplification', rule, {
+ruleTester.run('reduce-simplification', rule, {
     valid: [
         'sum([1, 2, 3])',
         'reduce(some)'
