@@ -8,9 +8,9 @@ const create = context => ({
             && node.arguments[0].type === 'Identifier') {
             const callee = node.arguments[0].name;
             const reporters = {
-                'add': 'sum',
-                'multiply': 'product'
-            }
+                add: 'sum',
+                multiply: 'product'
+            };
 
             if (reporters[callee]) {
                 context.report({
