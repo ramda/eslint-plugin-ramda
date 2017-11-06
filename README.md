@@ -1,6 +1,7 @@
 # eslint-plugin-ramda
 
 [![Build Status](https://api.travis-ci.org/rung-tools/eslint-plugin-ramda.svg?branch=master)](https://travis-ci.org/rung-tools/eslint-plugin-ramda)
+[![Code Coverage](https://codecov.io/gh/rung-tools/eslint-plugin-ramda/branch/master/graph/badge.svg)](https://codecov.io/gh/rung-tools/eslint-plugin-ramda)
 
 ESLint rules for pragmatic Ramda usage, refactoring and simplification
 
