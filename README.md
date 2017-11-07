@@ -26,12 +26,17 @@ Configure it in `package.json`.
       "ramda"
     ],
     "rules": {
+      "ramda/cond-simplification": "error",
       "ramda/filter-simplification": "error",
       "ramda/if-else-simplification": "error",
+      "ramda/merge-simplification": "error",
       "ramda/no-redundant-and": "error",
+      "ramda/no-redundant-not": "error",
       "ramda/no-redundant-or": "error",
+      "ramda/prop-satisfies-simplification": "error",
       "ramda/reduce-simplification": "error",
       "ramda/reject-simplification": "error",
+      "ramda/set-simplification": "error",
       "ramda/unless-simplification": "error",
       "ramda/when-simplification": "error"
     }
@@ -41,13 +46,17 @@ Configure it in `package.json`.
 
 ## Rules
 
+- `cond-simpliciation` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `filter-simplification` - Forbids using negated `filter` and suggests `reject`
 - `if-else-simplification` - Suggests `when` and `unless` when it is possible to replace
+- `merge-simplification` - Forbids `merge` when `assoc` fits
 - `no-redundant-and` - Forbids `and` with 2 parameters in favor of `&&`
 - `no-redundant-not` - Forbids `not` with 1 parameter in favor of `!`
 - `no-redundant-or` - Forbids `or` with 2 parameters in favor of `||`
+- `prop-satisfies-simplification` - Detects when can replace `propSatisfies` by more simple functions
 - `reduce-simplification` - Detects when can replace `reduce` by `sum` or `product`
 - `reject-simplification` - Forbids using negated `reject` and suggests `filter`
+- `set-simplification` - Forbids using `set` with `lensProp` in favor of `assoc`
 - `unless-simplification` - Forbids using negated `unless` and suggests `when`
 - `when-simplification` - Forbids using negated `when` and suggests `unless`
 
