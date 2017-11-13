@@ -29,6 +29,7 @@ Configure it in `package.json`.
       "ramda/cond-simplification": "error",
       "ramda/filter-simplification": "error",
       "ramda/if-else-simplification": "error",
+      "ramda/map-simplification": "error",
       "ramda/merge-simplification": "error",
       "ramda/no-redundant-and": "error",
       "ramda/no-redundant-not": "error",
@@ -49,6 +50,7 @@ Configure it in `package.json`.
 - `cond-simpliciation` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `filter-simplification` - Forbids using negated `filter` and suggests `reject`
 - `if-else-simplification` - Suggests `when` and `unless` when it is possible to replace
+- `map-simplification` - Forbids `map(prop(_))` and suggests `pluck`
 - `merge-simplification` - Forbids `merge` when `assoc` fits
 - `no-redundant-and` - Forbids `and` with 2 parameters in favor of `&&`
 - `no-redundant-not` - Forbids `not` with 1 parameter in favor of `!`
