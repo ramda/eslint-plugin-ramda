@@ -26,6 +26,7 @@ Configure it in `package.json`.
       "ramda"
     ],
     "rules": {
+      "ramda/complement-simplification": "error",
       "ramda/cond-simplification": "error",
       "ramda/filter-simplification": "error",
       "ramda/if-else-simplification": "error",
@@ -47,7 +48,8 @@ Configure it in `package.json`.
 
 ## Rules
 
-- `cond-simpliciation` - Forbids using `cond` when `ifElse`, `either` or `both` fits
+- `complement-simplification` - Forbids confusing `complement`, suggesting a better one
+- `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `filter-simplification` - Forbids using negated `filter` and suggests `reject`
 - `if-else-simplification` - Suggests `when` and `unless` when it is possible to replace
 - `map-simplification` - Forbids `map(prop(_))` and suggests `pluck`
