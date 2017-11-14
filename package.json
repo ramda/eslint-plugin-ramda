@@ -12,7 +12,7 @@
   ],
   "author": "Marcelo Camargo <marcelocamargo@linuxmail.org>",
   "contributors": [
-    "Mathias Schreck"
+    "Mathias Schreck <schreck.mathias@gmail.com>"
   ],
   "main": "index.js",
   "scripts": {
