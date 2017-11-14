@@ -28,6 +28,7 @@ Configure it in `package.json`.
     "rules": {
       "ramda/complement-simplification": "error",
       "ramda/cond-simplification": "error",
+      "ramda/either-simplification: "error",
       "ramda/filter-simplification": "error",
       "ramda/if-else-simplification": "error",
       "ramda/map-simplification": "error",
@@ -50,6 +51,7 @@ Configure it in `package.json`.
 
 - `complement-simplification` - Forbids confusing `complement`, suggesting a better one
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
+- `either-simplification` - Suggests transforming negated `either` conditions on negated `both`
 - `filter-simplification` - Forbids using negated `filter` and suggests `reject`
 - `if-else-simplification` - Suggests `when` and `unless` when it is possible to replace
 - `map-simplification` - Forbids `map(prop(_))` and suggests `pluck`
