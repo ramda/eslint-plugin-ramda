@@ -24,7 +24,7 @@
   "devDependencies": {
     "ava": "^0.23.0",
     "codecov": "^3.0.0",
-    "eslint": "~3.9.1",
+    "eslint": "~4.11.0",
     "eslint-ava-rule-tester": "^2.0.2",
     "nyc": "^11.3.0",
     "xo": "^0.18.2"
