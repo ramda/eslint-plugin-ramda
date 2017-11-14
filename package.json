@@ -31,6 +31,10 @@
     "eslint-ava-rule-tester": "^2.0.2",
     "nyc": "^11.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ramda/eslint-plugin-ramda.git"
+  },
   "engines": {
     "node": ">=4.0.0"
   },
