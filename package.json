@@ -32,6 +32,12 @@
   "engines": {
     "node": ">=4.0.0"
   },
+  "files": [
+      "index.js",
+      "rules/",
+      "LICENSE",
+      "README.md"
+  ],
   "xo": {
     "esnext": true,
     "space": 4,
