@@ -12,5 +12,9 @@ const recommended = createIndex.createConfig({
 
 module.exports = {
     rules,
-    configs: { recommended }
+    configs: {
+        recommended: {
+            rules: recommended
+        }
+    }
 };
