@@ -26,6 +26,7 @@ Configure it in `package.json`.
       "ramda"
     ],
     "rules": {
+      "ramda/any-pass-simplification": "error",
       "ramda/both-simplification": "error",
       "ramda/complement-simplification": "error",
       "ramda/cond-simplification": "error",
@@ -50,6 +51,7 @@ Configure it in `package.json`.
 
 ## Rules
 
+- `any-pass-simplification` - Suggests simplifying list of negations in `anyPass` by single negation in `allPass`
 - `both-simplification` - Suggests transforming negated `both` conditions on negated `either`
 - `complement-simplification` - Forbids confusing `complement`, suggesting a better one
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
