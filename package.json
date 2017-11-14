@@ -11,6 +11,9 @@
     "fantasy-land"
   ],
   "author": "Marcelo Camargo <marcelocamargo@linuxmail.org>",
+  "contributors": [
+    "Mathias Schreck"
+  ],
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./",
