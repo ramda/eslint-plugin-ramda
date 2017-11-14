@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-ramda",
   "version": "0.1.0",
-  "description": "Ramda refactoring and simplification",
+  "description": "ESLint rules for use with Ramda",
   "license": "MIT",
   "keywords": [
     "eslint",
