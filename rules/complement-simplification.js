@@ -6,7 +6,7 @@ const create = context => ({
             && node.callee.name === 'complement'
             && node.arguments.length > 0
             && node.arguments[0].type === 'Identifier') {
-            const { name } = node.arguments[0];
+            const name = node.arguments[0].name;
             const replacementTable = {
                 or: 'and',
                 and: 'or',
