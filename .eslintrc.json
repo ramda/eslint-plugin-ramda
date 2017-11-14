@@ -2,5 +2,14 @@
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
+  },
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": ":matches(ArrayPattern, ObjectPattern)",
+        "message": "Using destructuring assignment breaks compatibilization with Node v4"
+      }
+    ]
   }
 }
