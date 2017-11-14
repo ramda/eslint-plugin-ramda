@@ -28,7 +28,7 @@ Configure it in `package.json`.
     "rules": {
       "ramda/complement-simplification": "error",
       "ramda/cond-simplification": "error",
-      "ramda/either-simplification: "error",
+      "ramda/either-simplification": "error",
       "ramda/filter-simplification": "error",
       "ramda/if-else-simplification": "error",
       "ramda/map-simplification": "error",
