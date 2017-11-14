@@ -26,6 +26,7 @@ Configure it in `package.json`.
       "ramda"
     ],
     "rules": {
+      "ramda/both-simplification": "error",
       "ramda/complement-simplification": "error",
       "ramda/cond-simplification": "error",
       "ramda/either-simplification": "error",
@@ -49,6 +50,7 @@ Configure it in `package.json`.
 
 ## Rules
 
+- `both-simplification` - Suggests transforming negated `both` conditions on negated `either`
 - `complement-simplification` - Forbids confusing `complement`, suggesting a better one
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `either-simplification` - Suggests transforming negated `either` conditions on negated `both`
