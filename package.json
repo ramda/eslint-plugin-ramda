@@ -11,9 +11,12 @@
     "fantasy-land"
   ],
   "author": "Marcelo Camargo <marcelocamargo@linuxmail.org>",
+  "contributors": [
+    "Mathias Schreck"
+  ],
   "main": "index.js",
   "scripts": {
-    "lint": "xo",
+    "lint": "eslint ./",
     "test": "nyc ava",
     "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
@@ -26,30 +29,15 @@
     "codecov": "^3.0.0",
     "eslint": "~4.11.0",
     "eslint-ava-rule-tester": "^2.0.2",
-    "nyc": "^11.3.0",
-    "xo": "^0.18.2"
+    "nyc": "^11.3.0"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "files": [
-      "index.js",
-      "rules/",
-      "LICENSE",
-      "README.md"
-  ],
-  "xo": {
-    "esnext": true,
-    "space": 4,
-    "rules": {
-      "operator-linebreak": [
-        "error",
-        "before"
-      ],
-      "object-curly-spacing": [
-        "error",
-        "always"
-      ]
-    }
-  }
+    "index.js",
+    "rules/",
+    "LICENSE",
+    "README.md"
+  ]
 }
