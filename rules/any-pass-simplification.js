@@ -6,7 +6,7 @@ const create = context => ({
             && node.callee.name === 'anyPass'
             && node.arguments.length > 0
             && node.arguments[0].type === 'ArrayExpression') {
-            const [{ elements }] = node.arguments;
+            const elements = node.arguments[0].elements;
             const negated = elements
                 .filter(element =>
                     element.type === 'CallExpression'
