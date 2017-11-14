@@ -1,8 +1,8 @@
 # eslint-plugin-ramda
 
 [![NPM Version](https://img.shields.io/npm/v/eslint-plugin-ramda.svg?style=flat)](https://www.npmjs.org/package/eslint-plugin-ramda)
-[![Build Status](https://api.travis-ci.org/rung-tools/eslint-plugin-ramda.svg?branch=master)](https://travis-ci.org/rung-tools/eslint-plugin-ramda)
-[![Code Coverage](https://codecov.io/gh/rung-tools/eslint-plugin-ramda/branch/master/graph/badge.svg)](https://codecov.io/gh/rung-tools/eslint-plugin-ramda)
+[![Build Status](https://api.travis-ci.org/ramda/eslint-plugin-ramda.svg?branch=master)](https://travis-ci.org/ramda/eslint-plugin-ramda)
+[![Code Coverage](https://codecov.io/gh/ramda/eslint-plugin-ramda/branch/master/graph/badge.svg)](https://codecov.io/gh/ramda/eslint-plugin-ramda)
 [![NPM Downloads](https://img.shields.io/npm/dm/eslint-plugin-ramda.svg?style=flat)](https://www.npmjs.org/package/eslint-plugin-ramda)
 
 ESLint rules for pragmatic Ramda usage, refactoring and simplification
