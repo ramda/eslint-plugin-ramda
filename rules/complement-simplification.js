@@ -3,7 +3,7 @@ const R = require('ramda');
 const ast = require('../ast-helper');
 
 const isCalling = ast.isCalling;
-const isName = ast.isName;
+const isRamdaMethod = ast.isRamdaMethod;
 const getName = ast.getName;
 
 const names = {
@@ -20,7 +20,7 @@ const create = context => ({
             arguments: R.both(
                 R.propSatisfies(R.lt(0), 'length'),
                 R.where({
-                    0: R.anyPass(R.map(isName, R.keys(names)))
+                    0: R.anyPass(R.map(isRamdaMethod, R.keys(names)))
                 })
             )
         });

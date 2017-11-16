@@ -3,7 +3,7 @@ const R = require('ramda');
 const ast = require('../ast-helper');
 
 const isCalling = ast.isCalling;
-const isName = ast.isName;
+const isRamdaMethod = ast.isRamdaMethod;
 
 const create = context => ({
     CallExpression(node) {
@@ -12,7 +12,7 @@ const create = context => ({
             arguments: R.both(
                 R.propSatisfies(R.lte(2), 'length'),
                 R.where({
-                    0: isName('__'),
+                    0: isRamdaMethod('__'),
                     1: R.where({
                         type: R.equals('ObjectExpression'),
                         properties: R.propEq('length', 1)

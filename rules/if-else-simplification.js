@@ -3,7 +3,7 @@ const R = require('ramda');
 const ast = require('../ast-helper');
 
 const isCalling = ast.isCalling;
-const isName = ast.isName;
+const isRamdaMethod = ast.isRamdaMethod;
 
 const create = context => ({
     CallExpression(node) {
@@ -11,7 +11,7 @@ const create = context => ({
             name: 'ifElse',
             arguments: R.both(
                 R.propSatisfies(R.lte(2), 'length'),
-                R.propSatisfies(isName('identity'), 1)
+                R.propSatisfies(isRamdaMethod('identity'), 1)
             )
         });
 
@@ -19,7 +19,7 @@ const create = context => ({
             name: 'ifElse',
             arguments: R.both(
                 R.propSatisfies(R.lte(3), 'length'),
-                R.propSatisfies(isName('identity'), 2)
+                R.propSatisfies(isRamdaMethod('identity'), 2)
             )
         });
 

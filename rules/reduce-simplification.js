@@ -3,7 +3,7 @@ const R = require('ramda');
 const ast = require('../ast-helper');
 
 const isCalling = ast.isCalling;
-const isName = ast.isName;
+const isRamdaMethod = ast.isRamdaMethod;
 const getName = ast.getName;
 
 const create = context => ({
@@ -14,7 +14,7 @@ const create = context => ({
         });
 
         if (match(node)) {
-            const canSimplify = R.either(isName('add'), isName('multiply'));
+            const canSimplify = R.either(isRamdaMethod('add'), isRamdaMethod('multiply'));
             const reporters = {
                 add: 'sum',
                 multiply: 'product'

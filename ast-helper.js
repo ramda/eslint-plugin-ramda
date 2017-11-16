@@ -9,7 +9,7 @@ const getName = R.ifElse(
 );
 
 // :: String -> Node -> Boolean
-const isName = name => R.either(
+const isRamdaMethod = name => R.either(
     R.whereEq({
         type: 'Identifier',
         name
@@ -26,10 +26,10 @@ const isName = name => R.either(
 // -> Boolean
 const isCalling = pattern => R.where({
     type: R.equals('CallExpression'),
-    callee: isName(pattern.name),
+    callee: isRamdaMethod(pattern.name),
     arguments: pattern.arguments || R.T
 });
 
-exports.isName = isName;
+exports.isRamdaMethod = isRamdaMethod;
 exports.isCalling = isCalling;
 exports.getName = getName;

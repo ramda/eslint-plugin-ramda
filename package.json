@@ -41,6 +41,7 @@
   },
   "files": [
     "index.js",
+    "ast-helper.js",
     "rules/",
     "LICENSE",
     "README.md"
