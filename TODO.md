@@ -7,12 +7,12 @@
   - [x] filter-simplification.js
   - [x] if-else-simplification.js
   - [x] map-simplification.js
-  - [ ] merge-simplification.js
+  - [x] merge-simplification.js
   - [x] no-redundant-and.js
   - [x] no-redundant-not.js
   - [x] no-redundant-or.js
   - [x] prop-satisfies-simplification.js
-  - [ ] reduce-simplification.js
+  - [x] reduce-simplification.js
   - [x] reject-simplification.js
   - [x] set-simplification.js
   - [x] unless-simplification.js
