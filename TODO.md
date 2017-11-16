@@ -1,5 +1,5 @@
 - [ ] Write specializations for `R.*` for the following rules:
-  - [ ] any-pass-simplification.js
+  - [x] any-pass-simplification.js
   - [ ] both-simplification.js
   - [ ] complement-simplification.js
   - [ ] cond-simplification.js
