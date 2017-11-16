@@ -11,18 +11,26 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = {
+    ruleId: 'either-simplification',
+    message: '`either(complement(_), complement(_))` should be simplified to `complement(both(_, _))`'
+};
+
 ruleTester.run('either-simplification', rule, {
     valid: [
         'either(first, second)',
-        'either(first)'
+        'either(first)',
+        'R.either(first, second)',
+        'R.either(first)'
     ],
     invalid: [
         {
             code: 'either(complement(a), complement(b))',
-            errors: [{
-                ruleId: 'either-simplification',
-                message: '`either(complement(_), complement(_))` should be simplified to `complement(both(_, _))`'
-            }]
+            errors: [error]
+        },
+        {
+            code: 'R.either(R.complement(a), R.complement(b))',
+            errors: [error]
         }
     ]
 });
