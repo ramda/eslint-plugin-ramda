@@ -6,7 +6,7 @@ const create = context => ({
     CallExpression(node) {
         const matches = isCalling({
             name: 'not',
-            arity: R.propSatisfies(R.lt(0), 'length')
+            arguments: R.propSatisfies(R.lt(0), 'length')
         });
 
         if (matches(node)) {

@@ -1,7 +1,7 @@
 'use strict';
 const R = require('ramda');
 
-// :: { name :: String, arity :: Number -> Boolean }
+// :: { name :: String, arguments :: [Node] -> Boolean }
 // -> Object
 // -> Boolean
 exports.isCalling = pattern => R.where({
@@ -17,5 +17,5 @@ exports.isCalling = pattern => R.where({
             property: R.whereEq({ type: 'Identifier', name: pattern.name })
         })
     ),
-    arguments: pattern.arity
+    arguments: pattern.arguments
 });

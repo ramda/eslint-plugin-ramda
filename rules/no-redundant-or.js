@@ -1,10 +1,15 @@
 'use strict';
+const R = require('ramda');
+const isCalling = require('../ast-helper').isCalling;
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'or'
-            && node.arguments.length >= 2) {
+        const match = isCalling({
+            name: 'or',
+            arguments: R.propSatisfies(R.lte(2), 'length')
+        });
+
+        if (match(node)) {
             context.report({
                 node,
                 message: 'No redundant use of `or`. Use `||` in this case'

@@ -18,13 +18,19 @@ const error = {
 
 ruleTester.run('no-redundant-or', rule, {
     valid: [
-        'true && false',
+        'true || false',
         'or(true)',
-        'or'
+        'or',
+        'R.or(true)',
+        'R.or'
     ],
     invalid: [
         {
             code: 'or(true, false)',
+            errors: [error]
+        },
+        {
+            code: 'R.or(true, false)',
             errors: [error]
         }
     ]
