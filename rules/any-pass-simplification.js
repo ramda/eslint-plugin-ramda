@@ -9,7 +9,10 @@ const create = context => ({
             arguments: R.both(
                 R.propSatisfies(R.lt(0), 'length'),
                 R.where({
-                    0: R.propSatisfies(R.all(isCalling({ name: 'complement' })), 'elements')
+                    0: R.both(
+                        R.propEq('type', 'ArrayExpression'),
+                        R.propSatisfies(R.all(isCalling({ name: 'complement' })), 'elements')
+                    )
                 })
             )
         });

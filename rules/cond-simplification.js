@@ -9,7 +9,10 @@ const create = context => ({
             arguments: R.both(
                 R.propSatisfies(R.lt(0), 'length'),
                 R.where({
-                    0: R.pathSatisfies(R.gte(2), ['elements', 'length'])
+                    0: R.both(
+                        R.propEq('type', 'ArrayExpression'),
+                        R.pathSatisfies(R.gte(2), ['elements', 'length'])
+                    )
                 })
             )
         });

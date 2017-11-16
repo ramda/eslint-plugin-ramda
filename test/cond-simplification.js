@@ -19,7 +19,8 @@ const error = {
 ruleTester.run('cond-simplification', rule, {
     valid: [
         'cond([[a, b], [c, d], [e, f]])',
-        'R.cond([[a, b], [c, d], [e, f]])'
+        'R.cond([[a, b], [c, d], [e, f]])',
+        'cond(anything)'
     ],
     invalid: [
         {

@@ -23,7 +23,8 @@ ruleTester.run('any-pass-simplification', rule, {
         'anyPass([complement(a), complement(b), some(c)])',
         'R.anyPass',
         'R.anyPass([complement(a), b, R.complement(c)])',
-        'R.anyPass([R.complement(a), R.complement(b), some(c)])'
+        'R.anyPass([R.complement(a), R.complement(b), some(c)])',
+        'R.anyPass(1)'
     ],
     invalid: [
         {
