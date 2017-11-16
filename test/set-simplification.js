@@ -11,18 +11,32 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = {
+    ruleId: 'set-simplification',
+    message: '`set(lensProp(_))` should be simplified to `assoc(_)`'
+};
+
 ruleTester.run('set-simplification', rule, {
     valid: [
         'set(lensIndex(0), 1)',
-        'set(__, 2)'
+        'set(__, 2)',
+        'R.set(R.lensIndex(0), 1)',
+        'R.set(R.__, 2)',
+        'R.set(lensIndex(0), 1)',
+        'set(R.__, 2)'
     ],
     invalid: [
         {
             code: 'set(lensProp(\'name\', \'Haskell\'))',
-            errors: [{
-                ruleId: 'set-simplification',
-                message: '`set(lensProp(_))` should be simplified to `assoc(_)`'
-            }]
+            errors: [error]
+        },
+        {
+            code: 'R.set(R.lensProp(\'name\', \'Haskell\'))',
+            errors: [error]
+        },
+        {
+            code: 'R.set(lensProp(\'name\'))',
+            errors: [error]
         }
     ]
 });

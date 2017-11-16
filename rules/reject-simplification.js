@@ -1,13 +1,20 @@
 'use strict';
+const R = require('ramda');
+const isCalling = require('../ast-helper').isCalling;
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'reject'
-            && node.arguments.length > 0
-            && node.arguments[0].type === 'CallExpression'
-            && node.arguments[0].callee.type === 'Identifier'
-            && node.arguments[0].callee.name === 'complement') {
+        const match = isCalling({
+            name: 'reject',
+            arguments: R.both(
+                R.propSatisfies(R.lt(0), 'length'),
+                R.propSatisfies(isCalling({
+                    name: 'complement'
+                }), 0)
+            )
+        });
+
+        if (match(node)) {
             context.report({
                 node,
                 message: '`reject(complement(_))` should be simplified to `filter(_)`'

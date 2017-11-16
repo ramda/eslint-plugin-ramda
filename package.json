@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-ramda",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "ESLint rules for use with Ramda",
   "license": "MIT",
   "keywords": [
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "create-eslint-index": "^1.0.0",
+    "ramda": "0.25.0",
     "req-all": "^1.0.0"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
   },
   "files": [
     "index.js",
+    "ast-helper.js",
     "rules/",
     "LICENSE",
     "README.md"

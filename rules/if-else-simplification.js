@@ -1,25 +1,40 @@
 'use strict';
+const R = require('ramda');
+const ast = require('../ast-helper');
+
+const isCalling = ast.isCalling;
+const isRamdaMethod = ast.isRamdaMethod;
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'ifElse'
-            && node.arguments.length >= 2) {
-            const second = node.arguments[1].name;
+        const matchUnless = isCalling({
+            name: 'ifElse',
+            arguments: R.both(
+                R.propSatisfies(R.lte(2), 'length'),
+                R.propSatisfies(isRamdaMethod('identity'), 1)
+            )
+        });
 
-            if (second === 'identity') {
-                context.report({
-                    node,
-                    message: '`ifElse(_, identity, _)` should be simplified to `unless(_, _)`'
-                });
-            }
+        const matchWhen = isCalling({
+            name: 'ifElse',
+            arguments: R.both(
+                R.propSatisfies(R.lte(3), 'length'),
+                R.propSatisfies(isRamdaMethod('identity'), 2)
+            )
+        });
 
-            if (node.arguments[2] && node.arguments[2].name === 'identity') {
-                context.report({
-                    node,
-                    message: '`ifElse(_, _, identity)` should be simplified to `when(_, _)`'
-                });
-            }
+        if (matchUnless(node)) {
+            context.report({
+                node,
+                message: '`ifElse(_, identity, _)` should be simplified to `unless(_, _)`'
+            });
+        }
+
+        if (matchWhen(node)) {
+            context.report({
+                node,
+                message: '`ifElse(_, _, identity)` should be simplified to `when(_, _)`'
+            });
         }
     }
 });

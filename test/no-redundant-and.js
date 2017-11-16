@@ -20,11 +20,17 @@ ruleTester.run('no-redundant-and', rule, {
     valid: [
         'true && false',
         'and(true)',
-        'and'
+        'and',
+        'R.and(true)',
+        'R.and'
     ],
     invalid: [
         {
             code: 'and(true, false)',
+            errors: [error]
+        },
+        {
+            code: 'R.and(true, false)',
             errors: [error]
         }
     ]

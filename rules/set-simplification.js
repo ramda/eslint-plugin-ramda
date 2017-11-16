@@ -1,13 +1,20 @@
 'use strict';
+const R = require('ramda');
+const isCalling = require('../ast-helper').isCalling;
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'set'
-            && node.arguments.length > 0
-            && node.arguments[0].type === 'CallExpression'
-            && node.arguments[0].callee.type === 'Identifier'
-            && node.arguments[0].callee.name === 'lensProp') {
+        const match = isCalling({
+            name: 'set',
+            arguments: R.both(
+                R.propSatisfies(R.lt(0), 'length'),
+                R.propSatisfies(isCalling({
+                    name: 'lensProp'
+                }), 0)
+            )
+        });
+
+        if (match(node)) {
             context.report({
                 node,
                 message: '`set(lensProp(_))` should be simplified to `assoc(_)`'

@@ -11,18 +11,30 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = {
+    ruleId: 'when-simplification',
+    message: '`when(complement(_))` should be simplified to `unless(_)`'
+};
+
 ruleTester.run('when-simplification', rule, {
     valid: [
         'when(condition, action)',
-        'when(condition)'
+        'when(condition)',
+        'R.when(condition, action)',
+        'R.when(condition)'
     ],
     invalid: [
         {
             code: 'when(complement(condition), action)',
-            errors: [{
-                ruleId: 'when-simplification',
-                message: '`when(complement(_))` should be simplified to `unless(_)`'
-            }]
+            errors: [error]
+        },
+        {
+            code: 'R.when(R.complement(condition), action)',
+            errors: [error]
+        },
+        {
+            code: 'R.when(complement(condition), action)',
+            errors: [error]
         }
     ]
 });

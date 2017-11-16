@@ -1,26 +1,37 @@
 'use strict';
+const R = require('ramda');
+const ast = require('../ast-helper');
+
+const isCalling = ast.isCalling;
+const isRamdaMethod = ast.isRamdaMethod;
+const getName = ast.getName;
+
+const names = {
+    or: 'and',
+    and: 'or',
+    T: 'F',
+    F: 'T'
+};
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'complement'
-            && node.arguments.length > 0
-            && node.arguments[0].type === 'Identifier') {
-            const name = node.arguments[0].name;
-            const replacementTable = {
-                or: 'and',
-                and: 'or',
-                T: 'F',
-                F: 'T'
-            };
+        const match = isCalling({
+            name: 'complement',
+            arguments: R.both(
+                R.propSatisfies(R.lt(0), 'length'),
+                R.where({
+                    0: R.anyPass(R.map(isRamdaMethod, R.keys(names)))
+                })
+            )
+        });
 
-            const expected = replacementTable[name];
-            if (expected) {
-                context.report({
-                    node,
-                    message: `\`complement(${name})\` should be simplified to \`${expected}\``
-                });
-            }
+        if (match(node)) {
+            const name = getName(node.arguments[0]);
+            const expected = names[name];
+            context.report({
+                node,
+                message: `\`complement(${name})\` should be simplified to \`${expected}\``
+            });
         }
     }
 });

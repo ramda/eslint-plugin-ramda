@@ -11,39 +11,41 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = (from, to) => ({
+    ruleId: 'complement-simplification',
+    message: `\`complement(${from})\` should be simplified to \`${to}\``
+});
+
 ruleTester.run('complement-simplification', rule, {
     valid: [
         'complement(equals)',
-        'complement(odd())'
+        'complement(odd())',
+        'R.complement(equals)'
     ],
     invalid: [
         {
             code: 'complement(T)',
-            errors: [{
-                ruleId: 'complement-simplification',
-                message: '`complement(T)` should be simplified to `F`'
-            }]
+            errors: [error('T', 'F')]
         },
         {
             code: 'complement(F)',
-            errors: [{
-                ruleId: 'complement-simplification',
-                message: '`complement(F)` should be simplified to `T`'
-            }]
+            errors: [error('F', 'T')]
         },
         {
             code: 'complement(or)',
-            errors: [{
-                ruleId: 'complement-simplification',
-                message: '`complement(or)` should be simplified to `and`'
-            }]
+            errors: [error('or', 'and')]
         },
         {
             code: 'complement(and)',
-            errors: [{
-                ruleId: 'complement-simplification',
-                message: '`complement(and)` should be simplified to `or`'
-            }]
+            errors: [error('and', 'or')]
+        },
+        {
+            code: 'R.complement(R.T)',
+            errors: [error('T', 'F')]
+        },
+        {
+            code: 'R.complement(or)',
+            errors: [error('or', 'and')]
         }
     ]
 });

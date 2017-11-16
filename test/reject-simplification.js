@@ -11,17 +11,32 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = {
+    ruleId: 'reject-simplification',
+    message: '`reject(complement(_))` should be simplified to `filter(_)`'
+};
+
 ruleTester.run('reject-simplification', rule, {
     valid: [
-        'reject(condition)'
+        'reject(condition)',
+        'R.reject(condition)'
     ],
     invalid: [
         {
             code: 'reject(complement(even))',
-            errors: [{
-                ruleId: 'reject-simplification',
-                message: '`reject(complement(_))` should be simplified to `filter(_)`'
-            }]
+            errors: [error]
+        },
+        {
+            code: 'R.reject(complement(even))',
+            errors: [error]
+        },
+        {
+            code: 'R.reject(R.complement(even))',
+            errors: [error]
+        },
+        {
+            code: 'reject(R.complement(even))',
+            errors: [error]
         }
     ]
 });
