@@ -1,12 +1,20 @@
 'use strict';
+const R = require('ramda');
+const isCalling = require('../ast-helper').isCalling;
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'cond'
-            && node.arguments.length > 0
-            && node.arguments[0].type === 'ArrayExpression'
-            && node.arguments[0].elements.length <= 2) {
+        const match = isCalling({
+            name: 'cond',
+            arguments: R.both(
+                R.propSatisfies(R.lt(0), 'length'),
+                R.where({
+                    0: R.pathSatisfies(R.gte(2), ['elements', 'length'])
+                })
+            )
+        });
+
+        if (match(node)) {
             context.report({
                 node,
                 message: '`cond` with too few parameters should be `ifElse`, `either` or `both`'

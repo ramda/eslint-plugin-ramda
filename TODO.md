@@ -2,7 +2,7 @@
   - [x] any-pass-simplification.js
   - [ ] both-simplification.js
   - [ ] complement-simplification.js
-  - [ ] cond-simplification.js
+  - [x] cond-simplification.js
   - [ ] either-simplification.js
   - [x] filter-simplification.js
   - [x] if-else-simplification.js

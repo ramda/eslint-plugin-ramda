@@ -11,17 +11,24 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = {
+    ruleId: 'when-simplification',
+    message: '`cond` with too few parameters should be `ifElse`, `either` or `both`'
+};
+
 ruleTester.run('cond-simplification', rule, {
     valid: [
-        'cond([[a, b], [c, d], [e, f]])'
+        'cond([[a, b], [c, d], [e, f]])',
+        'R.cond([[a, b], [c, d], [e, f]])'
     ],
     invalid: [
         {
             code: 'cond([[a, b], [c, d]])',
-            errors: [{
-                ruleId: 'when-simplification',
-                message: '`cond` with too few parameters should be `ifElse`, `either` or `both`'
-            }]
+            errors: [error]
+        },
+        {
+            code: 'R.cond([[a, b], [c, d]])',
+            errors: [error]
         }
     ]
 });
