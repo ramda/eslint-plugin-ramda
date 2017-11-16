@@ -11,7 +11,7 @@
   - [x] no-redundant-and.js
   - [x] no-redundant-not.js
   - [x] no-redundant-or.js
-  - [ ] prop-satisfies-simplification.js
+  - [x] prop-satisfies-simplification.js
   - [ ] reduce-simplification.js
   - [x] reject-simplification.js
   - [x] set-simplification.js
