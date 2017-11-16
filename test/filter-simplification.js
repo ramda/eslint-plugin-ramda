@@ -30,7 +30,8 @@ ruleTester.run('filter-simplification', rule, {
         'import { filter, complement } from "not-ramda"; filter(complement(predicate));',
         'import R from "not-ramda"; R.filter(R.complement(predicate));',
         'function foo(filter, complement) { filter(complement(predicate)); }',
-        'const R = notRequire("ramda"); R.filter(R.complement(predicate));'
+        'const R = notRequire("ramda"); R.filter(R.complement(predicate));',
+        'const R = require("ramda"); R[filter](R.complement(predicate));'
     ],
     invalid: [
         {
