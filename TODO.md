@@ -1,0 +1,19 @@
+- [ ] Write specializations for `R.*` for the following rules:
+  - [ ] any-pass-simplification.js
+  - [ ] both-simplification.js
+  - [ ] complement-simplification.js
+  - [ ] cond-simplification.js
+  - [ ] either-simplification.js
+  - [ ] filter-simplification.js
+  - [ ] if-else-simplification.js
+  - [ ] map-simplification.js
+  - [ ] merge-simplification.js
+  - [x] no-redundant-and.js
+  - [x] no-redundant-not.js
+  - [ ] no-redundant-or.js
+  - [ ] prop-satisfies-simplification.js
+  - [ ] reduce-simplification.js
+  - [ ] reject-simplification.js
+  - [ ] set-simplification.js
+  - [ ] unless-simplification.js
+  - [ ] when-simplification.js
