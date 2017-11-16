@@ -15,5 +15,5 @@
   - [ ] reduce-simplification.js
   - [ ] reject-simplification.js
   - [ ] set-simplification.js
-  - [ ] unless-simplification.js
+  - [x] unless-simplification.js
   - [x] when-simplification.js
