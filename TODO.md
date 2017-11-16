@@ -6,7 +6,7 @@
   - [ ] either-simplification.js
   - [x] filter-simplification.js
   - [x] if-else-simplification.js
-  - [ ] map-simplification.js
+  - [x] map-simplification.js
   - [ ] merge-simplification.js
   - [x] no-redundant-and.js
   - [x] no-redundant-not.js
