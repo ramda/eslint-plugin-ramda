@@ -19,11 +19,16 @@ const error = {
 ruleTester.run('no-redundant-not', rule, {
     valid: [
         '!value',
-        'complement(not)'
+        'complement(not)',
+        'R.complement(R.not)',
     ],
     invalid: [
         {
             code: 'not(true)',
+            errors: [error]
+        },
+        {
+            code: 'R.not(true)',
             errors: [error]
         }
     ]
