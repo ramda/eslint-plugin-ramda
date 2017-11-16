@@ -4,7 +4,7 @@
   - [ ] complement-simplification.js
   - [ ] cond-simplification.js
   - [ ] either-simplification.js
-  - [ ] filter-simplification.js
+  - [x] filter-simplification.js
   - [ ] if-else-simplification.js
   - [ ] map-simplification.js
   - [ ] merge-simplification.js
@@ -13,7 +13,7 @@
   - [x] no-redundant-or.js
   - [ ] prop-satisfies-simplification.js
   - [ ] reduce-simplification.js
-  - [ ] reject-simplification.js
+  - [x] reject-simplification.js
   - [ ] set-simplification.js
   - [x] unless-simplification.js
   - [x] when-simplification.js
