@@ -1,6 +1,7 @@
 'use strict';
 const R = require('ramda');
 
+// :: String -> Node -> Boolean
 const isName = name => R.either(
     R.whereEq({
         type: 'Identifier',

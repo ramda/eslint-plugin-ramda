@@ -14,6 +14,6 @@
   - [ ] prop-satisfies-simplification.js
   - [ ] reduce-simplification.js
   - [x] reject-simplification.js
-  - [ ] set-simplification.js
+  - [x] set-simplification.js
   - [x] unless-simplification.js
   - [x] when-simplification.js
