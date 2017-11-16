@@ -17,5 +17,5 @@ exports.isCalling = pattern => R.where({
             property: R.whereEq({ type: 'Identifier', name: pattern.name })
         })
     ),
-    arguments: pattern.arguments
+    arguments: pattern.arguments || R.T
 });

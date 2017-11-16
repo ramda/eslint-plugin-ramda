@@ -10,10 +10,10 @@
   - [ ] merge-simplification.js
   - [x] no-redundant-and.js
   - [x] no-redundant-not.js
-  - [ ] no-redundant-or.js
+  - [x] no-redundant-or.js
   - [ ] prop-satisfies-simplification.js
   - [ ] reduce-simplification.js
   - [ ] reject-simplification.js
   - [ ] set-simplification.js
   - [ ] unless-simplification.js
-  - [ ] when-simplification.js
+  - [x] when-simplification.js
