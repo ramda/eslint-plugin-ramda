@@ -1,14 +1,27 @@
 'use strict';
+const R = require('ramda');
+const ast = require('../ast-helper');
+
+const isCalling = ast.isCalling;
+const isName = ast.isName;
 
 const create = context => ({
     CallExpression(node) {
-        if (node.callee.type === 'Identifier'
-            && node.callee.name === 'merge'
-            && node.arguments.length >= 2
-            && node.arguments[0].type === 'Identifier'
-            && node.arguments[0].name === '__'
-            && node.arguments[1].type === 'ObjectExpression'
-            && node.arguments[1].properties.length === 1) {
+        const match = isCalling({
+            name: 'merge',
+            arguments: R.both(
+                R.propSatisfies(R.lte(2), 'length'),
+                R.where({
+                    0: isName('__'),
+                    1: R.where({
+                        type: R.equals('ObjectExpression'),
+                        properties: R.propEq('length', 1)
+                    })
+                })
+            )
+        });
+
+        if (match(node)) {
             context.report({
                 node,
                 message: '`merge(__, { key: value })` should be simplified to `assoc(key, value)`'

@@ -11,20 +11,34 @@ const ruleTester = avaRuleTester(test, {
     }
 });
 
+const error = {
+    ruleId: 'merge-simplification',
+    message: '`merge(__, { key: value })` should be simplified to `assoc(key, value)`'
+};
+
 ruleTester.run('merge-simplification', rule, {
     valid: [
         'merge(__, { x: 1, y: 2 })',
         'merge({ x: 1 }, { y: 2 })',
         'merge({ x: 1 })',
-        'merge(__, {})'
+        'merge(__, {})',
+        'R.merge(R.__, {})',
+        'R.merge(__, {})',
+        'R.merge(R.__, { x: 1, y: 2 })',
+        'R.merge(__)'
     ],
     invalid: [
         {
             code: 'merge(__, { x: 1 })',
-            errors: [{
-                ruleId: 'merge-simplification',
-                message: '`merge(__, { key: value })` should be simplified to `assoc(key, value)`'
-            }]
+            errors: [error]
+        },
+        {
+            code: 'R.merge(R.__, { x: 1 })',
+            errors: [error]
+        },
+        {
+            code: 'merge(R.__, { x: 1 })',
+            errors: [error]
         }
     ]
 });
