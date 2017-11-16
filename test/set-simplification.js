@@ -29,6 +29,14 @@ ruleTester.run('set-simplification', rule, {
         {
             code: 'set(lensProp(\'name\', \'Haskell\'))',
             errors: [error]
+        },
+        {
+            code: 'R.set(R.lensProp(\'name\', \'Haskell\'))',
+            errors: [error]
+        },
+        {
+            code: 'R.set(lensProp(\'name\'))',
+            errors: [error]
         }
     ]
 });
