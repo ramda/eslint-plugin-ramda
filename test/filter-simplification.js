@@ -31,7 +31,11 @@ ruleTester.run('filter-simplification', rule, {
             errors: [error]
         },
         {
-            code: 'filter(R.complement(even))',
+            code: 'R[\'filter\'](R.complement(even))',
+            errors: [error]
+        },
+        {
+            code: 'filter(R[\'complement\'](even))',
             errors: [error]
         }
     ]

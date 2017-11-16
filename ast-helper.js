@@ -17,7 +17,10 @@ const isRamdaMethod = name => R.either(
     R.where({
         type: R.equals('MemberExpression'),
         object: R.whereEq({ type: 'Identifier', name: 'R' }),
-        property: R.whereEq({ type: 'Identifier', name })
+        property: R.either(
+            R.whereEq({ type: 'Identifier', name }),
+            R.whereEq({ type: 'Literal', value: name })
+        )
     })
 );
 
