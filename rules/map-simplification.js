@@ -1,6 +1,9 @@
 'use strict';
 const R = require('ramda');
-const isCalling = require('../ast-helper').isCalling;
+const ast = require('../ast-helper');
+
+const isCalling = ast.isCalling;
+const getName = ast.getName;
 
 const create = context => ({
     CallExpression(node) {
@@ -8,16 +11,22 @@ const create = context => ({
             name: 'map',
             arguments: R.both(
                 R.propSatisfies(R.lt(0), 'length'),
-                R.propSatisfies(isCalling({
-                    name: 'prop'
-                }), 0)
+                R.propSatisfies(R.either(
+                    isCalling({ name: 'prop' }),
+                    isCalling({ name: 'pickAll' })
+                ), 0)
             )
         });
 
         if (match(node)) {
+            const map = {
+                prop: 'pluck',
+                pickAll: 'project'
+            };
+            const callee =  getName(node.arguments[0].callee);
             context.report({
                 node,
-                message: '`map(prop(_))` should be simplified to `pluck(_)`'
+                message: `\`map(${callee}(_))\` should be simplified to \`${map[callee]}(_)\``
             });
         }
     }
