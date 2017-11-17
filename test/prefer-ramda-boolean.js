@@ -21,7 +21,12 @@ ruleTester.run('prefer-ramda-boolean', rule, {
         'true',
         'R.T',
         'R.F',
-        '() => computation'
+        '() => computation',
+        '() => { return 1; }',
+        '(function () { return 1; })',
+        '(function() { return; })',
+        '() => {}',
+        '() => { return; }'
     ],
     invalid: [
         {
@@ -39,6 +44,14 @@ ruleTester.run('prefer-ramda-boolean', rule, {
         {
             code: '() => true',
             errors: [error('true', 'T')]
+        },
+        {
+            code: '() => { return true; }',
+            errors: [error('true', 'T')]
+        },
+        {
+            code: '() => { return false; }',
+            errors: [error('false', 'F')]
         }
     ]
 });

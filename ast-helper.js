@@ -33,6 +33,13 @@ const isCalling = pattern => R.where({
     arguments: pattern.arguments || R.T
 });
 
+// :: Node -> Boolean
+const isBooleanLiteral = R.both(
+    R.propEq('type', 'Literal'),
+    R.propSatisfies(R.is(Boolean), 'value')
+);
+
 exports.isRamdaMethod = isRamdaMethod;
 exports.isCalling = isCalling;
 exports.getName = getName;
+exports.isBooleanLiteral = isBooleanLiteral;

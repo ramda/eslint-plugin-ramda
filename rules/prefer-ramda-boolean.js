@@ -1,17 +1,40 @@
 'use strict';
 const R = require('ramda');
+const isBooleanLiteral = require('../ast-helper').isBooleanLiteral;
 
 const report = (instead, prefer) => `Instead of \`() => ${instead}\`, prefer \`${prefer}\``;
-const isBooleanLiteral = R.both(
-    R.propEq('type', 'Literal'),
-    R.propSatisfies(R.is(Boolean), 'value')
-);
 const getAlternative = R.applyTo(R.__, R.compose(R.toUpper, R.head, R.toString));
+
+// :: Node -> Boolean
+const onlyReturnsBoolean = R.where({
+    type: R.equals('BlockStatement'),
+    body: R.both(
+        R.propEq('length', 1),
+        R.where({
+            0: R.where({
+                type: R.equals('ReturnStatement'),
+                argument: R.both(
+                    R.complement(R.isNil),
+                    isBooleanLiteral
+                )
+            })
+        })
+    )
+});
+
+// Node -> String
+const getRawReturn = R.ifElse(
+    R.propEq('type', 'BlockStatement'),
+    R.path(['body', 0, 'argument', 'value']),
+    R.prop('value')
+);
 
 const create = context => ({
     ArrowFunctionExpression(node) {
-        if (isBooleanLiteral(node.body)) {
-            const instead = node.body.value;
+        const match = R.either(isBooleanLiteral, onlyReturnsBoolean);
+
+        if (match(node.body)) {
+            const instead = getRawReturn(node.body);
             context.report({
                 node,
                 message: report(instead, getAlternative(instead))
@@ -20,19 +43,6 @@ const create = context => ({
     },
 
     FunctionExpression(node) {
-        const onlyReturnsBoolean = R.where({
-            type: R.equals('BlockStatement'),
-            body: R.both(
-                R.propEq('length', 1),
-                R.where({
-                    0: R.where({
-                        type: R.equals('ReturnStatement'),
-                        argument: isBooleanLiteral
-                    })
-                })
-            )
-        });
-
         if (onlyReturnsBoolean(node.body)) {
             const instead = node.body.body[0].argument.value;
             context.report({
