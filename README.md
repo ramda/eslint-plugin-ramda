@@ -40,6 +40,7 @@ Configure it in `package.json`.
       "ramda/no-redundant-and": "error",
       "ramda/no-redundant-not": "error",
       "ramda/no-redundant-or": "error",
+      "ramda/prefer-ramda-boolean": "error",
       "ramda/prop-satisfies-simplification": "error",
       "ramda/reduce-simplification": "error",
       "ramda/reject-simplification": "error",
@@ -65,6 +66,7 @@ Configure it in `package.json`.
 - `no-redundant-and` - Forbids `and` with 2 parameters in favor of `&&`
 - `no-redundant-not` - Forbids `not` with 1 parameter in favor of `!`
 - `no-redundant-or` - Forbids `or` with 2 parameters in favor of `||`
+- `prefer-ramda-boolean` - Enforces using `R.T` and `R.F` instead of explicit functions
 - `prop-satisfies-simplification` - Detects when can replace `propSatisfies` by more simple functions
 - `reduce-simplification` - Detects when can replace `reduce` by `sum` or `product`
 - `reject-simplification` - Forbids using negated `reject` and suggests `filter`
