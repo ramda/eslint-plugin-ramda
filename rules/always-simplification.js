@@ -6,7 +6,10 @@ const isCalling = ast.isCalling;
 const isBooleanLiteral = ast.isBooleanLiteral;
 
 const report = (instead, prefer) => `\`always(${instead})\` should be simplified to \`${prefer}\``;
-const getAlternative = R.applyTo(R.__, R.compose(R.toUpper, R.head, R.toString));
+const alternatives = {
+    'true': 'T',
+    'false': 'F'
+};
 
 const create = context => ({
     CallExpression(node) {
@@ -25,7 +28,7 @@ const create = context => ({
 
             context.report({
                 node,
-                message: report(instead, getAlternative(instead))
+                message: report(instead, alternatives[instead])
             });
         }
     }
