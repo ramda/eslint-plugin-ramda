@@ -39,7 +39,7 @@ module.exports = {
     meta: {
         docs: {
             description: 'Detects cases where `always` is redundant',
-            recommended: 'error'
+            recommended: 'off'
         }
     }
 };

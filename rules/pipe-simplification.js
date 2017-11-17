@@ -32,7 +32,7 @@ module.exports = {
     meta: {
         docs: {
             description: 'Detects when there are better functions that behave the same as `pipe`',
-            recommended: 'error'
+            recommended: 'off'
         }
     }
 };
