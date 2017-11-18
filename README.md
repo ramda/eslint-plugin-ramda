@@ -28,9 +28,11 @@ Configure it in `package.json`.
       "ramda"
     ],
     "rules": {
+      "ramda/always-simplification": "error",
       "ramda/any-pass-simplification": "error",
       "ramda/both-simplification": "error",
       "ramda/complement-simplification": "error",
+      "ramda/compose-simplification": "error",
       "ramda/cond-simplification": "error",
       "ramda/either-simplification": "error",
       "ramda/filter-simplification": "error",
@@ -40,6 +42,8 @@ Configure it in `package.json`.
       "ramda/no-redundant-and": "error",
       "ramda/no-redundant-not": "error",
       "ramda/no-redundant-or": "error",
+      "ramda/pipe-simplification": "error",
+      "ramda/prefer-ramda-boolean": "error",
       "ramda/prop-satisfies-simplification": "error",
       "ramda/reduce-simplification": "error",
       "ramda/reject-simplification": "error",
@@ -53,9 +57,11 @@ Configure it in `package.json`.
 
 ## Rules
 
+- `always-simplification` - Detects when `always` usage can be replaced by a Ramda function
 - `any-pass-simplification` - Suggests simplifying list of negations in `anyPass` by single negation in `allPass`
 - `both-simplification` - Suggests transforming negated `both` conditions on negated `either`
 - `complement-simplification` - Forbids confusing `complement`, suggesting a better one
+- `compose-simplification` - Detects when a function that has the same behavior already exists
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `either-simplification` - Suggests transforming negated `either` conditions on negated `both`
 - `filter-simplification` - Forbids using negated `filter` and suggests `reject`
@@ -65,6 +71,8 @@ Configure it in `package.json`.
 - `no-redundant-and` - Forbids `and` with 2 parameters in favor of `&&`
 - `no-redundant-not` - Forbids `not` with 1 parameter in favor of `!`
 - `no-redundant-or` - Forbids `or` with 2 parameters in favor of `||`
+- `pipe-simplification` - Detects when a function that has the same behavior already exists
+- `prefer-ramda-boolean` - Enforces using `R.T` and `R.F` instead of explicit functions
 - `prop-satisfies-simplification` - Detects when can replace `propSatisfies` by more simple functions
 - `reduce-simplification` - Detects when can replace `reduce` by `sum` or `product`
 - `reject-simplification` - Forbids using negated `reject` and suggests `filter`
