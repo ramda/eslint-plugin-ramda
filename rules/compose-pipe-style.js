@@ -16,22 +16,18 @@ const create = context => ({
             name: 'pipe'
         });
 
-        if (matchCompose(node)) {
-            if (!isSingleLine(node)) {
-                context.report({
-                    node,
-                    message: 'Prefer `pipe` over `compose` for multiline expression'
-                });
-            }
+        if (matchCompose(node) && !isSingleLine(node)) {
+            context.report({
+                node,
+                message: 'Prefer `pipe` over `compose` for multiline expression'
+            });
         }
 
-        if (matchPipe(node)) {
-            if (isSingleLine(node)) {
-                context.report({
-                    node,
-                    message: 'Prefer `compose` over `pipe` for single line expression'
-                });
-            }
+        if (matchPipe(node) && isSingleLine(node)) {
+            context.report({
+                node,
+                message: 'Prefer `compose` over `pipe` for single line expression'
+            });
         }
     }
 });
