@@ -36,7 +36,7 @@ module.exports = {
     create,
     meta: {
         docs: {
-            description: 'Prefer `compose` for single line expression and `pipe` for multiline.',
+            description: 'Enforces `compose` for single line expression and `pipe` for multiline',
             recommended: 'off'
         }
     }

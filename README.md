@@ -62,7 +62,7 @@ Configure it in `package.json`.
 - `any-pass-simplification` - Suggests simplifying list of negations in `anyPass` by single negation in `allPass`
 - `both-simplification` - Suggests transforming negated `both` conditions on negated `either`
 - `complement-simplification` - Forbids confusing `complement`, suggesting a better one
-- `compose-pipe-style` - Prefer `compose` for single line expression and `pipe` for multiline.
+- `compose-pipe-style` - Enforces `compose` for single line expression and `pipe` for multiline
 - `compose-simplification` - Detects when a function that has the same behavior already exists
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `either-simplification` - Suggests transforming negated `either` conditions on negated `both`
