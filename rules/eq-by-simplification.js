@@ -27,7 +27,7 @@ module.exports = {
     create,
     meta: {
         docs: {
-            description: 'Detects when `eqBy(props(_))` can be replaced by `eqProps(_)`',
+            description: 'Detects when `eqBy(prop(_))` can be replaced by `eqProps(_)`',
             recommended: 'off'
         }
     }
