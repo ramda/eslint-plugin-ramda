@@ -9,7 +9,8 @@ const create = context => ({
             arguments: R.both(
                 R.complement(R.isEmpty),
                 R.propSatisfies(isCalling({
-                    name: 'prop'
+                    name: 'prop',
+                    arguments: R.propEq('length', 1)
                 }), 0)
             )
         });

@@ -19,7 +19,8 @@ const error = {
 ruleTester.run('filter-simplification', rule, {
     valid: [
         'eqBy(trim, \'\')',
-        'R.eqBy(R.pluck(key))'
+        'R.eqBy(R.pluck(key))',
+        'eqBy(prop(\'name\', namedObj))'
     ],
     invalid: [
         {
