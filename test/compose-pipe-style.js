@@ -28,6 +28,8 @@ ruleTester.run('compose-pipe-style', rule, {
         'R.compose(a, b, c)',
         'pipe(\na,\nb,\nc\n)',
         'R.pipe(\na,\nb,\nc\n)',
+        'pipe(\na, b, c)', // not stylish but can be handled with function-paren-newline
+        'pipe(a, b, c\n)' // not stylish but can be handled with function-paren-newline
     ],
     invalid: [
         {
@@ -36,6 +38,10 @@ ruleTester.run('compose-pipe-style', rule, {
         },
         {
             code: 'R.compose(\na,\nb,\nc)',
+            errors: [error.compose]
+        },
+        {
+            code: 'compose(\na, b, c\n)',
             errors: [error.compose]
         },
         {
