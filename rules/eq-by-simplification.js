@@ -7,7 +7,7 @@ const create = context => ({
         const match = isCalling({
             name: 'eqBy',
             arguments: R.both(
-                R.propSatisfies(R.lt(0), 'length'),
+                R.complement(R.isEmpty),
                 R.propSatisfies(isCalling({
                     name: 'prop'
                 }), 0)
@@ -28,7 +28,7 @@ module.exports = {
     meta: {
         docs: {
             description: 'Detects when `eqBy(props(_))` can be replaced by `eqProps(_)`',
-            recommended: 'error'
+            recommended: 'off'
         }
     }
 };
