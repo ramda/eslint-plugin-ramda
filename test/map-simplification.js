@@ -28,7 +28,9 @@ ruleTester.run('map-simplification', rule, {
         'map(doubleMe, [1, 2, 3])',
         'R.map(transformer, list)',
         'R.map(R.inc, [1, 2, 3])',
-        'project([\'name\', \'age\'])'
+        'project([\'name\', \'age\'])',
+        'map(prop(__, {}))',
+        'map(pickAll(__, items))'
     ],
     invalid: [
         {
