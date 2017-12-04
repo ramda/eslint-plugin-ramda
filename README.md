@@ -36,6 +36,7 @@ Configure it in `package.json`.
       "ramda/compose-simplification": "error",
       "ramda/cond-simplification": "error",
       "ramda/either-simplification": "error",
+      "ramda/eq-by-simplification": "error",
       "ramda/filter-simplification": "error",
       "ramda/if-else-simplification": "error",
       "ramda/map-simplification": "error",
@@ -66,6 +67,7 @@ Configure it in `package.json`.
 - `compose-simplification` - Detects when a function that has the same behavior already exists
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `either-simplification` - Suggests transforming negated `either` conditions on negated `both`
+- `eq-by-simplification` - Forbids `eqBy(prop(_))` and suggests `eqProps`
 - `filter-simplification` - Forbids using negated `filter` and suggests `reject`
 - `if-else-simplification` - Suggests `when` and `unless` when it is possible to replace
 - `map-simplification` - Forbids `map(prop(_))` and suggests `pluck`

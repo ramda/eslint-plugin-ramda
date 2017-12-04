@@ -12,8 +12,14 @@ const create = context => ({
             arguments: R.both(
                 R.propSatisfies(R.lt(0), 'length'),
                 R.propSatisfies(R.either(
-                    isCalling({ name: 'prop' }),
-                    isCalling({ name: 'pickAll' })
+                    isCalling({
+                        name: 'prop',
+                        arguments: R.propEq('length', 1)
+                    }),
+                    isCalling({
+                        name: 'pickAll',
+                        arguments: R.propEq('length', 1)
+                    })
                 ), 0)
             )
         });
