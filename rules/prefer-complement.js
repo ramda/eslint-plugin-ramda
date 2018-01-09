@@ -51,7 +51,7 @@ module.exports = {
     meta: {
         docs: {
             description: 'Enforces using `complement` instead of compositions using `not`',
-            recommended: 'error'
+            recommended: 'off'
         }
     }
 };
