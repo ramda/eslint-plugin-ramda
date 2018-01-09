@@ -23,6 +23,12 @@ ruleTester.run('prefer-complement', rule, {
         'complement(isEmpty)',
         'complement(isNil)',
         'propSatisfies(complement(isNil))',
+        'compose(foo, bar)',
+        'pipe(bar, foo)',
+        'compose(foo, not, bar)',
+        'compose(not, foo, bar)',
+        'pipe(bar, not, foo)',
+        'pipe(bar, foo, not)'
     ],
     invalid: [
         {
@@ -40,6 +46,14 @@ ruleTester.run('prefer-complement', rule, {
         {
             code: 'pipe(isNil, not)',
             errors: [error('pipe', 'isNil')]
+        },
+        {
+            code: 'compose(not, foo)',
+            errors: [error('compose', 'foo')]
+        },
+        {
+            code: 'pipe(foo, not)',
+            errors: [error('pipe', 'foo')]
         },
         {
             code: 'propSatisfies(compose(not, isNil))',
