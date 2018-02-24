@@ -26,7 +26,11 @@ ruleTester.run('prefer-both-either', rule, {
         'both(foo, bar)',
         'either(foo, bar)',
         'allPass([foo, bar, baz])',
-        'anyPass([foo, bar, baz])'
+        'anyPass([foo, bar, baz])',
+        'allPass(predicates)',
+        'allPass(predicates, foo)',
+        'anyPass(predicates)',
+        'anyPass(predicates, foo)'
     ],
     invalid: [
         {
