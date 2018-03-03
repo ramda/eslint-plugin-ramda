@@ -26,16 +26,15 @@ const elementsToString = R.pipe(
     R.join(', ')
 );
 
-const report = (instead, args) => `Instead of \`${instead}([${args}])\`, prefer \`${prefer[instead]}(${args})\``
+const report = instead => `Instead of \`${instead}\`, prefer \`${prefer[instead]}\` when there are only two predicates`
 
 const create = context => ({
     CallExpression(node) {
         if (match('allPass')(node) || match('anyPass')(node)) {
             const callee = getName(node.callee);
-            const args = elementsToString(node.arguments[0]);
             context.report({
                 node,
-                message: report(callee, args)
+                message: report(callee)
             });
         }
     }
