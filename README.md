@@ -45,6 +45,7 @@ Configure it in `package.json`.
       "ramda/no-redundant-not": "error",
       "ramda/no-redundant-or": "error",
       "ramda/pipe-simplification": "error",
+      "ramda/prefer-both-either": "error",
       "ramda/prefer-complement": "error",
       "ramda/prefer-ramda-boolean": "error",
       "ramda/prop-satisfies-simplification": "error",
@@ -77,6 +78,7 @@ Configure it in `package.json`.
 - `no-redundant-not` - Forbids `not` with 1 parameter in favor of `!`
 - `no-redundant-or` - Forbids `or` with 2 parameters in favor of `||`
 - `pipe-simplification` - Detects when a function that has the same behavior already exists
+- `prefer-both-either` - Enforces using `both`/`either` instead of `allPass`/`anyPass` with a list of only two predicates
 - `prefer-complement` - Enforces using `complement` instead of compositions using `not`
 - `prefer-ramda-boolean` - Enforces using `R.T` and `R.F` instead of explicit functions
 - `prop-satisfies-simplification` - Detects when can replace `propSatisfies` by more simple functions
