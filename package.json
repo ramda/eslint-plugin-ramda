@@ -38,7 +38,7 @@
     "url": "git://github.com/ramda/eslint-plugin-ramda.git"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=6.0.0 <7 || >=8.0.0 <9 || >=10.0.0"
   },
   "files": [
     "index.js",
