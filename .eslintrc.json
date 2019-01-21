@@ -3,13 +3,16 @@
     "ecmaVersion": 6,
     "sourceType": "module"
   },
+  "plugins": ["node"],
   "rules": {
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": ":matches(ArrayPattern, ObjectPattern)",
-        "message": "Using destructuring assignment breaks compatibilization with Node v4"
-      }
-    ]
+    "node/exports-style": ["error", "module.exports"],
+    "node/no-deprecated-api": "error",
+    "node/no-extraneous-import": "error",
+    "node/no-extraneous-require": "error",
+    "node/no-missing-import": "error",
+    "node/no-missing-require": "error",
+    "node/no-unsupported-features/es-builtins": "error",
+    "node/no-unsupported-features/es-syntax": "error",
+    "node/no-unsupported-features/node-builtins": "error"
   }
 }
