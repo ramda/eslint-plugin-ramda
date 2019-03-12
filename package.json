@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "create-eslint-index": "^1.0.0",
+    "dedent": "^0.7.0",
     "ramda": "0.25.0",
     "req-all": "^2.0.0"
   },
