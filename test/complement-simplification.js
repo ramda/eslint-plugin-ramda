@@ -46,6 +46,14 @@ ruleTester.run('complement-simplification', rule, {
         {
             code: 'R.complement(or)',
             errors: [error('or', 'and')]
+        },
+        {
+            code: 'complement(lte)',
+            errors: [error('lte', 'gt')]
+        },
+        {
+            code: 'complement(gte)',
+            errors: [error('gte', 'lt')]
         }
     ]
 });

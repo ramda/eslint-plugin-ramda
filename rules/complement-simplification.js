@@ -10,7 +10,9 @@ const names = {
     or: 'and',
     and: 'or',
     T: 'F',
-    F: 'T'
+    F: 'T',
+    lte: 'gt',
+    gte: 'lt'
 };
 
 const create = context => ({
