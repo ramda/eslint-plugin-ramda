@@ -19,6 +19,8 @@ const error = (from, to) => ({
 ruleTester.run('complement-simplification', rule, {
     valid: [
         'complement(equals)',
+        'complement(and)',
+        'complement(or)',
         'complement(odd())',
         'R.complement(equals)'
     ],
@@ -32,20 +34,8 @@ ruleTester.run('complement-simplification', rule, {
             errors: [error('F', 'T')]
         },
         {
-            code: 'complement(or)',
-            errors: [error('or', 'and')]
-        },
-        {
-            code: 'complement(and)',
-            errors: [error('and', 'or')]
-        },
-        {
             code: 'R.complement(R.T)',
             errors: [error('T', 'F')]
-        },
-        {
-            code: 'R.complement(or)',
-            errors: [error('or', 'and')]
         }
     ]
 });

@@ -7,8 +7,6 @@ const isRamdaMethod = ast.isRamdaMethod;
 const getName = ast.getName;
 
 const names = {
-    or: 'and',
-    and: 'or',
     T: 'F',
     F: 'T'
 };
