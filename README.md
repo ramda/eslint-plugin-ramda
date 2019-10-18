@@ -34,6 +34,7 @@ Configure it in `package.json`.
       "ramda/complement-simplification": "error",
       "ramda/compose-pipe-style": "error",
       "ramda/compose-simplification": "error",
+      "ramda/cond-default": "error",
       "ramda/cond-simplification": "error",
       "ramda/either-simplification": "error",
       "ramda/eq-by-simplification": "error",
@@ -67,6 +68,7 @@ Configure it in `package.json`.
 - `complement-simplification` - Forbids confusing `complement`, suggesting a better one
 - `compose-pipe-style` - Enforces `compose` for single line expression and `pipe` for multiline
 - `compose-simplification` - Detects when a function that has the same behavior already exists
+- `cond-default` - Enforces `cond` having `R.T` as the last condition
 - `cond-simplification` - Forbids using `cond` when `ifElse`, `either` or `both` fits
 - `either-simplification` - Suggests transforming negated `either` conditions on negated `both`
 - `eq-by-simplification` - Forbids `eqBy(prop(_))` and suggests `eqProps`
